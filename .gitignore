@@ -1,3 +1,5 @@
 .pulp-cache/
 output/
 bower_components/
+.spago
+tags

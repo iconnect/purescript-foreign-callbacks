@@ -2,7 +2,7 @@ module Data.Foreign.Callback
 
 where
 
-import Control.Monad.Eff
+import Effect
 
 foreign import data Callback0 :: Type -> Type
 foreign import data Callback1 :: Type -> Type -> Type
@@ -16,27 +16,27 @@ foreign import data Callback8 :: Type -> Type -> Type -> Type -> Type -> Type ->
 foreign import data Callback9 :: Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type
 foreign import data Callback10:: Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type -> Type
 
-foreign import callback0 :: forall z r. Eff z r -> Callback0 r
+foreign import callback0 :: forall r. Effect r -> Callback0 r
 
-foreign import callback1 :: forall z r a. (a -> Eff z r) -> Callback1 a r
+foreign import callback1 :: forall r a. (a -> Effect r) -> Callback1 a r
 
-foreign import callback2 :: forall z r a b. (a -> b -> Eff z r) -> Callback2 a b r
+foreign import callback2 :: forall r a b. (a -> b -> Effect r) -> Callback2 a b r
 
-foreign import callback3 :: forall z r a b c. (a -> b -> c -> Eff z r) -> Callback3 a b c r
+foreign import callback3 :: forall r a b c. (a -> b -> c -> Effect r) -> Callback3 a b c r
 
-foreign import callback4 :: forall z r a b c d. (a -> b -> c -> d -> Eff z r) -> Callback4 a b c d r
+foreign import callback4 :: forall r a b c d. (a -> b -> c -> d -> Effect r) -> Callback4 a b c d r
 
-foreign import callback5 :: forall z r a b c d e. (a -> b -> c -> d -> e -> Eff z r) -> Callback5 a b c d e r
+foreign import callback5 :: forall r a b c d e. (a -> b -> c -> d -> e -> Effect r) -> Callback5 a b c d e r
 
-foreign import callback6 :: forall z r a b c d e f. (a -> b -> c -> d -> e -> f -> Eff z r) -> Callback6 a b c d e f r
+foreign import callback6 :: forall r a b c d e f. (a -> b -> c -> d -> e -> f -> Effect r) -> Callback6 a b c d e f r
 
-foreign import callback7 :: forall z r a b c d e f g. (a -> b -> c -> d -> e -> f -> g -> Eff z r) -> Callback7 a b c d e f g r
+foreign import callback7 :: forall r a b c d e f g. (a -> b -> c -> d -> e -> f -> g -> Effect r) -> Callback7 a b c d e f g r
 
-foreign import callback8 :: forall z r a b c d e f g h. (a -> b -> c -> d -> e -> f -> g -> h -> Eff z r) -> Callback8 a b c d e f g h r
+foreign import callback8 :: forall r a b c d e f g h. (a -> b -> c -> d -> e -> f -> g -> h -> Effect r) -> Callback8 a b c d e f g h r
 
-foreign import callback9 :: forall z r a b c d e f g h i. (a -> b -> c -> d -> e -> f -> g -> h -> i -> Eff z r) -> Callback9 a b c d e f g h i r
+foreign import callback9 :: forall r a b c d e f g h i. (a -> b -> c -> d -> e -> f -> g -> h -> i -> Effect r) -> Callback9 a b c d e f g h i r
 
-foreign import callback10 :: forall z r a b c d e f g h i j. (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> Eff z r) -> Callback10 a b c d e f g h i j r
+foreign import callback10 :: forall r a b c d e f g h i j. (a -> b -> c -> d -> e -> f -> g -> h -> i -> j -> Effect r) -> Callback10 a b c d e f g h i j r
 
 callback1_  eff = callback1  (\a -> eff)
 callback2_  eff = callback2  (\a b -> eff)
